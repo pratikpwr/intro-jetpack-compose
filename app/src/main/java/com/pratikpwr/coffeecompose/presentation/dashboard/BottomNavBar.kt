@@ -1,4 +1,4 @@
-package com.pratikpwr.coffeecompose.dashboard
+package com.pratikpwr.coffeecompose.presentation.dashboard
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -30,26 +30,26 @@ data class BottomNavScreen(
 )
 
 object BottomNavRoutes {
-    val HomePage = BottomNavScreen(
+    val HomeScreen = BottomNavScreen(
         name = "Home",
         selectedIcon = Icons.Filled.Home,
         unSelectedIcon = Icons.Outlined.Home,
         path = "home"
     );
-    val FavouritePage = BottomNavScreen(
+    val FavouriteScreen = BottomNavScreen(
         name = "Favourite",
         selectedIcon = Icons.Filled.Favorite,
         unSelectedIcon = Icons.Outlined.Favorite,
         path = "favourite"
     );
-    val ProfilePage = BottomNavScreen(
+    val ProfileScreen = BottomNavScreen(
         name = "Profile",
         selectedIcon = Icons.Filled.Person,
         unSelectedIcon = Icons.Outlined.Person,
         path = "profile"
     );
 
-    val routes = listOf(HomePage, FavouritePage, ProfilePage)
+    val routes = listOf(HomeScreen, FavouriteScreen, ProfileScreen)
 }
 
 
@@ -74,7 +74,7 @@ fun BottomNavBarItem(item: BottomNavScreen, isSelected: Boolean = false, modifie
 @Preview(showBackground = true)
 @Composable
 private fun BottomNavPreview() {
-    val currentScreen = remember { mutableStateOf(BottomNavRoutes.HomePage.name) }
+    val currentScreen = remember { mutableStateOf(BottomNavRoutes.HomeScreen.name) }
 
     BottomNavBar(currentScreen.value, onChange = { itemName ->
         currentScreen.value = itemName
@@ -82,7 +82,7 @@ private fun BottomNavPreview() {
 }
 
 @Composable
-fun BottomNavBar(selectedItem: String = BottomNavRoutes.HomePage.name, onChange: (String) -> Unit) {
+fun BottomNavBar(selectedItem: String = BottomNavRoutes.HomeScreen.name, onChange: (String) -> Unit) {
     Row(
         horizontalArrangement = Arrangement.SpaceAround,
         modifier = Modifier

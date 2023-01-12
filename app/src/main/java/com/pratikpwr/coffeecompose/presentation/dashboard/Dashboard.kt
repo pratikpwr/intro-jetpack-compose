@@ -1,22 +1,21 @@
-package com.pratikpwr.coffeecompose.dashboard
+package com.pratikpwr.coffeecompose.presentation.dashboard
 
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
-import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
-import com.pratikpwr.coffeecompose.ui.theme.Purple500
+import com.pratikpwr.coffeecompose.presentation.screens.FavouriteScreen
+import com.pratikpwr.coffeecompose.presentation.screens.HomeScreen
+import com.pratikpwr.coffeecompose.presentation.screens.ProfileScreen
 
 
 @Preview
 @Composable
 fun Dashboard() {
-    val currentScreen = remember { mutableStateOf(BottomNavRoutes.HomePage.name) }
+    val currentScreen = remember { mutableStateOf(BottomNavRoutes.HomeScreen.name) }
 
     Scaffold(
         topBar = {
@@ -34,6 +33,10 @@ fun Dashboard() {
             })
         }
     ) {
-
+        when (currentScreen.value) {
+            BottomNavRoutes.HomeScreen.name -> HomeScreen()
+            BottomNavRoutes.FavouriteScreen.name -> FavouriteScreen()
+            BottomNavRoutes.ProfileScreen.name -> ProfileScreen()
+        }
     }
 }

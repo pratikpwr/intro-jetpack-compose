@@ -1,4 +1,4 @@
-package com.pratikpwr.coffeecompose.dashboard
+package com.pratikpwr.coffeecompose.presentation.dashboard
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
