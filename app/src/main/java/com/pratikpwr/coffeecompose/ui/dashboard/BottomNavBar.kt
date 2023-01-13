@@ -1,4 +1,4 @@
-package com.pratikpwr.coffeecompose.presentation.dashboard
+package com.pratikpwr.coffeecompose.ui.dashboard
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -6,10 +6,10 @@ import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.outlined.Favorite
-import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Menu
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -30,11 +30,11 @@ data class BottomNavScreen(
 )
 
 object BottomNavRoutes {
-    val HomeScreen = BottomNavScreen(
-        name = "Home",
-        selectedIcon = Icons.Filled.Home,
-        unSelectedIcon = Icons.Outlined.Home,
-        path = "home"
+    val MenuScreen = BottomNavScreen(
+        name = "Menu",
+        selectedIcon = Icons.Filled.Menu,
+        unSelectedIcon = Icons.Outlined.Menu,
+        path = "menu"
     );
     val FavouriteScreen = BottomNavScreen(
         name = "Favourite",
@@ -49,7 +49,7 @@ object BottomNavRoutes {
         path = "profile"
     );
 
-    val routes = listOf(HomeScreen, FavouriteScreen, ProfileScreen)
+    val routes = listOf(MenuScreen, FavouriteScreen, ProfileScreen)
 }
 
 
@@ -74,7 +74,7 @@ fun BottomNavBarItem(item: BottomNavScreen, isSelected: Boolean = false, modifie
 @Preview(showBackground = true)
 @Composable
 private fun BottomNavPreview() {
-    val currentScreen = remember { mutableStateOf(BottomNavRoutes.HomeScreen.name) }
+    val currentScreen = remember { mutableStateOf(BottomNavRoutes.MenuScreen.name) }
 
     BottomNavBar(currentScreen.value, onChange = { itemName ->
         currentScreen.value = itemName
@@ -82,7 +82,10 @@ private fun BottomNavPreview() {
 }
 
 @Composable
-fun BottomNavBar(selectedItem: String = BottomNavRoutes.HomeScreen.name, onChange: (String) -> Unit) {
+fun BottomNavBar(
+    selectedItem: String = BottomNavRoutes.MenuScreen.name,
+    onChange: (String) -> Unit
+) {
     Row(
         horizontalArrangement = Arrangement.SpaceAround,
         modifier = Modifier

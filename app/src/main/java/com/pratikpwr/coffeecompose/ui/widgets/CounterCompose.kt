@@ -1,4 +1,4 @@
-package com.pratikpwr.coffeecompose
+package com.pratikpwr.coffeecompose.ui.widgets
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -23,7 +23,6 @@ fun CounterCompose() {
     val count = remember {
         mutableStateOf(0)
     }
-
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally

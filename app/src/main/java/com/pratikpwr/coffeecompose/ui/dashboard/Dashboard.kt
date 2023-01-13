@@ -1,4 +1,4 @@
-package com.pratikpwr.coffeecompose.presentation.dashboard
+package com.pratikpwr.coffeecompose.ui.dashboard
 
 import androidx.compose.material.Scaffold
 import androidx.compose.material.icons.Icons
@@ -7,15 +7,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.tooling.preview.Preview
-import com.pratikpwr.coffeecompose.presentation.screens.FavouriteScreen
-import com.pratikpwr.coffeecompose.presentation.screens.HomeScreen
-import com.pratikpwr.coffeecompose.presentation.screens.ProfileScreen
+import com.pratikpwr.coffeecompose.ui.screens.FavouriteScreen
+import com.pratikpwr.coffeecompose.ui.screens.MenuScreen
+import com.pratikpwr.coffeecompose.ui.screens.ProfileScreen
 
 
 @Preview
 @Composable
 fun Dashboard() {
-    val currentScreen = remember { mutableStateOf(BottomNavRoutes.HomeScreen.name) }
+    val currentScreen = remember { mutableStateOf(BottomNavRoutes.MenuScreen.name) }
 
     Scaffold(
         topBar = {
@@ -34,7 +34,7 @@ fun Dashboard() {
         }
     ) {
         when (currentScreen.value) {
-            BottomNavRoutes.HomeScreen.name -> HomeScreen()
+            BottomNavRoutes.MenuScreen.name -> MenuScreen()
             BottomNavRoutes.FavouriteScreen.name -> FavouriteScreen()
             BottomNavRoutes.ProfileScreen.name -> ProfileScreen()
         }
